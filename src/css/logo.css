@@ -1,0 +1,89 @@
+.pop-logo {
+  display: inline-block;
+
+  & .globe {
+    background: #fff;
+    border-radius: 50%;
+    width: 205px;
+    height: 150px;
+    border: 4px solid #111;
+
+    & .pop-title {
+      display: flex;
+      transform: translateY(-10px);
+
+      & .font {
+        font-family: "Heroes Legend";
+        padding-right: 10px;
+        font-size: 64px;
+        background:
+          radial-gradient(#fff4 20%, transparent 80%),
+          linear-gradient(to bottom, #FCAE19 0 40%, #FDE8A3 60% 100%);
+        background-size: 8px 8px, 100% 100%;
+        -webkit-text-stroke: 5px #111;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      & .first.p {
+        transform: rotate(-15deg) scale(1);
+      }
+
+      & .o {
+        background: linear-gradient(150deg, #FCAE19 0 40%, #FDE8A3 60% 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: translate(-32px, 1px) rotate(25deg) scale(0.9);
+        z-index: 5;
+      }
+
+      & .second.p {
+        transform: translate(-65px, -3px);
+        z-index: 1;
+      }
+
+      & .exclamation {
+        transform: translate(-81px, 0) rotate(5deg);
+      }
+
+    }
+
+    & .pop-subtitle {
+      background: #D41C10;
+      max-width: 125px;
+      height: 27px;
+      color: #fff;
+      transform: translate(44px, -40px);
+      border-radius: 12px;
+      text-align: center;
+
+      & span {
+        display: inline-block;
+        font-family: "Bebas Neue";
+        font-size: 24px;
+        letter-spacing: 1px;
+        transform: translateY(-1px);
+      }
+    }
+
+  }
+
+  & .triangle-container {
+    --triangle-shape: polygon(0 -5%, 100% -5%, 50% 100%);
+
+    width: 55px;
+    height: 55px;
+    background: #111;
+    clip-path: var(--triangle-shape);
+    transform: translate(35px, -10px) scale(0.7, 1) rotate(15deg);
+  }
+
+  & .triangle {
+    width: 50px;
+    height: 50px;
+    background: white;
+    clip-path: var(--triangle-shape);
+    transform: translate(3px, -8px);
+  }
+
+}

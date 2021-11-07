@@ -1,0 +1,18 @@
+.box-back {
+  --width: 350px;
+  --height: 450px;
+  --inner-color: gold;
+
+  width: var(--width);
+  height: var(--height);
+  box-sizing: border-box;
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  overflow: hidden;
+
+  & .inner-box {
+    height: 100%;
+    background: var(--inner-color);
+  }
+}

@@ -1,0 +1,48 @@
+.box-right {
+  --width: 225px;
+  --height: 450px;
+  --inner-height: 75px;
+  --inner-color: gold;
+
+  width: var(--width);
+  height: var(--height);
+  background: #fff3;
+  position: relative;
+
+  & .front-top {
+    background: #fff;
+    width: 100%;
+    height: var(--inner-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .front-side {
+    background: linear-gradient(transparent 75px, #fff 75px calc(100% - 100px), transparent calc(100% - 100px));
+    width: 75px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  & .front-bottom {
+    --extra-space: 25px;
+
+    background: #fff;
+    width: 100%;
+    height: calc(var(--inner-height) + var(--extra-space));
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
