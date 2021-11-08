@@ -1,3 +1,4 @@
+import "./FunkoFigure.js";
 import "./BoxFront.js";
 import "./BoxLeft.js";
 import "./BoxBack.js";
@@ -21,7 +22,7 @@ class PunkoFop extends HTMLElement {
         margin: auto;
         gap: 10px;
         transform-style: preserve-3d;
-        transform-origin: 50% 50%;
+        transform-origin: 50% 50% -100px;
         transform: rotateY(-22deg) rotateX(360deg);
         animation: spin 5s linear infinite;
       }
@@ -88,6 +89,13 @@ class PunkoFop extends HTMLElement {
     this.number = this.getAttribute("number") ?? "01";
     this.subname = this.getAttribute("subname");
     this.render();
+
+    const avocado = new URL(location.href).searchParams.get("avocado") === "1";
+    console.log(avocado);
+    if (avocado) {
+      const funkoFigure = document.createElement("funko-figure");
+      this.querySelector(".punko-fop").appendChild(funkoFigure);
+    }
   }
 
   render() {
