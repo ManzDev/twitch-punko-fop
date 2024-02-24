@@ -48,7 +48,7 @@ class FunkoName extends HTMLElement {
     this.shadowRoot.innerHTML = /* html */`
     <style>${FunkoName.styles}</style>
     <div class="box-data">
-      <div class="box-name">${this.name}</div>
+      <slot class="box-name">${this.name}</slot>
       ${this.showSubname()}
     </div>`;
   }

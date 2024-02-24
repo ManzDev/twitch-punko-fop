@@ -107,6 +107,29 @@ class PunkoFop extends HTMLElement {
     this.setImage(this.figure);
   }
 
+  static get observedAttributes() {
+    return ["name", "number", "subname", "figure"];
+  }
+
+  setName(name) {
+    this.querySelectorAll("[name]").forEach(item => item.setName(name));
+  }
+
+  setSubname(subname) {
+    this.querySelectorAll("[subname]").forEach(item => item.setSubname(subname));
+  }
+
+  setNumber(number) {
+    this.querySelectorAll("[number]").forEach(item => item.setNumber(number));
+  }
+
+  attributeChangedCallback(name, old, now) {
+    name === "name" && this.setName(now);
+    name === "subname" && this.setSubname(now);
+    name === "number" && this.setNumber(now);
+    name === "figure" && this.setFigure(now);
+  }
+
   setImage(url) {
     const funkoFigure = document.createElement("img");
     funkoFigure.setAttribute("src", `https://manz.dev/assets/stickers/${this.figure}`);

@@ -53,10 +53,10 @@ class BoxRight extends HTMLElement {
     <div class="box-right">
       <div class="front-top"></div>
       <div class="front-side">
-        <funko-name name="${this.name}"></funko-name>
+        <funko-name>${this.name}</funko-name>
       </div>
       <div class="front-bottom">
-        <funko-number number="${this.number}"></funko-number>
+        <funko-number>${this.number}</funko-number>
       </div>
       <funko-logo type="STREAMERS"></funko-logo>
       <manz-dev></manz-dev>

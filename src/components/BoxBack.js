@@ -46,7 +46,7 @@ class BoxBack extends HTMLElement {
       <div class="inner-box">
         <funko-logo type="STREAMERS"></funko-logo>
         <manz-dev></manz-dev>
-        <funko-number number="${this.number}"></funko-number>
+        <funko-number>${this.number}</funko-number>
       </div>
     </div>`;
   }

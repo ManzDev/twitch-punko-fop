@@ -45,8 +45,8 @@ class BoxLeft extends HTMLElement {
       <div class="inner-box">
         <funko-logo type="STREAMERS"></funko-logo>
         <manz-dev></manz-dev>
-        <funko-name name="${this.name}"></funko-name>
-        <funko-number number="${this.number}"></funko-number>
+        <funko-name>${this.name}</funko-name>
+        <funko-number>${this.number}</funko-number>
       </div>
     </div>`;
   }

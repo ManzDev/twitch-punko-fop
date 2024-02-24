@@ -54,7 +54,7 @@ class BoxFront extends HTMLElement {
     <div class="box-front">
       <div class="front-top">
         <div class="inner-box">
-          <funko-number number="${this.number}"></funko-number>
+          <funko-number>${this.number}</funko-number>
         </div>
       </div>
       <div class="front-side">
@@ -62,7 +62,7 @@ class BoxFront extends HTMLElement {
       </div>
       <div class="front-bottom">
         <div class="inner-box">
-          <funko-name name="${this.name}" subname="${this.subname}"></funko-name>
+          <funko-name subname="${this.subname}">${this.name}</funko-name>
         </div>
       </div>
       <funko-logo type="STREAMERS"></funko-logo>
