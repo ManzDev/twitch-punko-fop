@@ -33,8 +33,6 @@ class BoxLeft extends HTMLElement {
   }
 
   connectedCallback() {
-    this.name = this.getAttribute("name");
-    this.number = this.getAttribute("number") ?? "01";
     this.render();
   }
 
@@ -45,8 +43,8 @@ class BoxLeft extends HTMLElement {
       <div class="inner-box">
         <funko-logo type="STREAMERS"></funko-logo>
         <manz-dev></manz-dev>
-        <funko-name>${this.name}</funko-name>
-        <funko-number>${this.number}</funko-number>
+        <funko-name only-name></funko-name>
+        <funko-number></funko-number>
       </div>
     </div>`;
   }

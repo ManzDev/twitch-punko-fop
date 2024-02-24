@@ -18,6 +18,9 @@ class FunkoNumber extends HTMLElement {
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      span {
         font-family: "Bebas Neue";
         font-weight: bold;
         font-size: 32px;
@@ -32,11 +35,15 @@ class FunkoNumber extends HTMLElement {
     this.render();
   }
 
+  setNumber(number) {
+    this.shadowRoot.querySelector("span").textContent = number;
+  }
+
   render() {
     this.shadowRoot.innerHTML = /* html */`
     <style>${FunkoNumber.styles}</style>
     <div class="box-number">
-      <slot>---</slot>
+      <span>001</span>
     </div>`;
   }
 }

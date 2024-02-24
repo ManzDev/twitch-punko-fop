@@ -31,12 +31,14 @@ class FunkoName extends HTMLElement {
         color: #000;
         line-height: 90%;
       }
+
+      :host([only-name]) .box-subname {
+        display: none;
+      }
     `;
   }
 
   connectedCallback() {
-    this.name = this.getAttribute("name");
-    this.subname = this.getAttribute("subname");
     this.render();
   }
 
@@ -44,12 +46,20 @@ class FunkoName extends HTMLElement {
     return this.hasAttribute("subname") ? /* html */`<div class="box-subname">${this.subname}</div>` : "";
   }
 
+  setName(name) {
+    this.shadowRoot.querySelector(".box-name").textContent = name;
+  }
+
+  setSubName(subname) {
+    this.shadowRoot.querySelector(".box-subname").textContent = subname;
+  }
+
   render() {
     this.shadowRoot.innerHTML = /* html */`
     <style>${FunkoName.styles}</style>
     <div class="box-data">
-      <slot class="box-name">${this.name}</slot>
-      ${this.showSubname()}
+      <span class="box-name"></span>
+      <span class="box-subname"></span>
     </div>`;
   }
 }

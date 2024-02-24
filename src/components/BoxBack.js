@@ -35,7 +35,6 @@ class BoxBack extends HTMLElement {
   }
 
   connectedCallback() {
-    this.number = this.getAttribute("number") ?? "01";
     this.render();
   }
 
@@ -46,7 +45,7 @@ class BoxBack extends HTMLElement {
       <div class="inner-box">
         <funko-logo type="STREAMERS"></funko-logo>
         <manz-dev></manz-dev>
-        <funko-number>${this.number}</funko-number>
+        <funko-number></funko-number>
       </div>
     </div>`;
   }

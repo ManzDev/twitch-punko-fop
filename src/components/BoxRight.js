@@ -41,9 +41,6 @@ class BoxRight extends HTMLElement {
   }
 
   connectedCallback() {
-    this.name = this.getAttribute("name");
-    this.number = this.getAttribute("number") ?? "01";
-    this.subname = this.getAttribute("subname");
     this.render();
   }
 
@@ -53,10 +50,10 @@ class BoxRight extends HTMLElement {
     <div class="box-right">
       <div class="front-top"></div>
       <div class="front-side">
-        <funko-name>${this.name}</funko-name>
+        <funko-name only-name></funko-name>
       </div>
       <div class="front-bottom">
-        <funko-number>${this.number}</funko-number>
+        <funko-number></funko-number>
       </div>
       <funko-logo type="STREAMERS"></funko-logo>
       <manz-dev></manz-dev>

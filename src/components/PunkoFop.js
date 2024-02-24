@@ -1,4 +1,3 @@
-import "./FunkoFigure.js";
 import "./BoxFront.js";
 import "./BoxLeft.js";
 import "./BoxBack.js";
@@ -26,6 +25,11 @@ class PunkoFop extends HTMLElement {
         transform-origin: 50% 50% -100px;
         transform: rotateY(-22deg) rotateX(360deg);
         animation: spin 5s linear infinite;
+      }
+
+      .static .punko-fop {
+        animation: none;
+        transform: rotateY(-25deg) rotateX(5deg);
       }
 
       .figure-container {
@@ -99,12 +103,12 @@ class PunkoFop extends HTMLElement {
   }
 
   connectedCallback() {
-    this.name = this.getAttribute("name");
-    this.number = this.getAttribute("number") ?? "01";
-    this.subname = this.getAttribute("subname");
-    this.figure = this.getAttribute("figure");
     this.render();
-    this.setImage(this.figure);
+
+    this.setName(this.getAttribute("name"));
+    this.setNumber(this.getAttribute("number"));
+    this.setSubName(this.getAttribute("subname"));
+    this.setImage(this.getAttribute("figure"));
   }
 
   static get observedAttributes() {
@@ -112,28 +116,33 @@ class PunkoFop extends HTMLElement {
   }
 
   setName(name) {
-    this.querySelectorAll("[name]").forEach(item => item.setName(name));
+    this.querySelectorAll("funko-name").forEach(item => item.setName(name));
   }
 
-  setSubname(subname) {
-    this.querySelectorAll("[subname]").forEach(item => item.setSubname(subname));
+  setSubName(subname) {
+    this.querySelectorAll("funko-name").forEach(item => item.setSubName(subname));
   }
 
   setNumber(number) {
-    this.querySelectorAll("[number]").forEach(item => item.setNumber(number));
+    this.querySelectorAll("funko-number").forEach(item => item.setNumber(number));
   }
 
   attributeChangedCallback(name, old, now) {
-    name === "name" && this.setName(now);
-    name === "subname" && this.setSubname(now);
-    name === "number" && this.setNumber(now);
-    name === "figure" && this.setFigure(now);
+    console.log({ name, old, now });
+    name === "name" && old && this.setName(now);
+    name === "subname" && old && this.setSubName(now);
+    name === "number" && old && this.setNumber(now);
+    name === "figure" && old && this.setImage(now);
   }
 
-  setImage(url) {
+  setImage(image) {
     const funkoFigure = document.createElement("img");
-    funkoFigure.setAttribute("src", `https://manz.dev/assets/stickers/${this.figure}`);
-    this.querySelector(".figure-container").appendChild(funkoFigure);
+    funkoFigure.setAttribute("src", `https://manz.dev/assets/stickers/${image}`);
+    const figureContainer = this.querySelector(".figure-container");
+    if (figureContainer) {
+      figureContainer.innerHTML = "";
+      figureContainer.append(funkoFigure);
+    }
   }
 
   render() {
@@ -143,10 +152,10 @@ class PunkoFop extends HTMLElement {
       <div class="punko-fop">
         <box-top></box-top>
         <box-bottom></box-bottom>
-        <box-right number="${this.number}" name="${this.name}"></box-right>
-        <box-front number="${this.number}" name="${this.name}" subname="${this.subname}"></box-front>
-        <box-left number="${this.number}" name="${this.name}"></box-left>
-        <box-back number="${this.number}"></box-back>
+        <box-right></box-right>
+        <box-front></box-front>
+        <box-left></box-left>
+        <box-back></box-back>
         <div class="figure-container"></div>
       </div>
     </div>`;
