@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "stylelint-config-manzdev"
+  ],
+  "rules": {
+    "@stylistic/indentation": 2,
+    "@stylistic/function-comma-space-after": "never-single-line"
+  }
+}
