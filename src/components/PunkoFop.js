@@ -19,12 +19,26 @@ class PunkoFop extends HTMLElement {
       .punko-fop {
         display: flex;
         width: 350px;
+        height: 100%;
         margin: auto;
         gap: 10px;
         transform-style: preserve-3d;
         transform-origin: 50% 50% -100px;
         transform: rotateY(-22deg) rotateX(360deg);
         animation: spin 5s linear infinite;
+      }
+
+      .figure-container {
+        width: 100%;
+        height: 180%;
+        display: grid;
+        place-items: center;
+        transform: translateZ(-100px);
+
+        & img {
+          image-rendering: pixelated;
+          transform: scale(15);
+        }
       }
 
       box-right,
@@ -88,14 +102,15 @@ class PunkoFop extends HTMLElement {
     this.name = this.getAttribute("name");
     this.number = this.getAttribute("number") ?? "01";
     this.subname = this.getAttribute("subname");
+    this.figure = this.getAttribute("figure");
     this.render();
+    this.setImage(this.figure);
+  }
 
-    const avocado = new URL(location.href).searchParams.get("avocado") === "1";
-    console.log(avocado);
-    if (avocado) {
-      const funkoFigure = document.createElement("funko-figure");
-      this.querySelector(".punko-fop").appendChild(funkoFigure);
-    }
+  setImage(url) {
+    const funkoFigure = document.createElement("img");
+    funkoFigure.setAttribute("src", `https://manz.dev/assets/stickers/${this.figure}`);
+    this.querySelector(".figure-container").appendChild(funkoFigure);
   }
 
   render() {
@@ -109,6 +124,7 @@ class PunkoFop extends HTMLElement {
         <box-front number="${this.number}" name="${this.name}" subname="${this.subname}"></box-front>
         <box-left number="${this.number}" name="${this.name}"></box-left>
         <box-back number="${this.number}"></box-back>
+        <div class="figure-container"></div>
       </div>
     </div>`;
   }
