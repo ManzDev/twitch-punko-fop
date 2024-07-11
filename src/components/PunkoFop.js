@@ -10,23 +10,6 @@ const isStatic = new URL(location.href).searchParams.has("static");
 class PunkoFop extends HTMLElement {
   static get styles() {
     return /* css */`
-      @font-face {
-        font-family: "Bebas Neue";
-        src:
-          url("/fonts/bebas-neue.woff2") format("woff2"),
-          url("/fonts/bebas-neue.woff") format("woff");
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "Heroes Legend";
-        src:
-          url("/fonts/heroes-legend.woff2") format("woff2"),
-          url("/fonts/heroes-legend.woff") format("woff"),
-          url("/fonts/heroes-legend.ttf") format("truetype");
-        font-display: swap;
-      }
-
       .container {
         width: 350px;
         height: 250px;
