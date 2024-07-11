@@ -5,9 +5,28 @@ import "./BoxRight.js";
 import "./BoxTop.js";
 import "./BoxBottom.js";
 
+const isStatic = new URL(location.href).searchParams.has("static");
+
 class PunkoFop extends HTMLElement {
   static get styles() {
     return /* css */`
+      @font-face {
+        font-family: "Bebas Neue";
+        src:
+          url("/fonts/bebas-neue.woff2") format("woff2"),
+          url("/fonts/bebas-neue.woff") format("woff");
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Heroes Legend";
+        src:
+          url("/fonts/heroes-legend.woff2") format("woff2"),
+          url("/fonts/heroes-legend.woff") format("woff"),
+          url("/fonts/heroes-legend.ttf") format("truetype");
+        font-display: swap;
+      }
+
       .container {
         width: 350px;
         height: 250px;
@@ -30,6 +49,11 @@ class PunkoFop extends HTMLElement {
       .static .punko-fop {
         animation: none;
         transform: rotateY(-25deg) rotateX(5deg);
+        transform: rotateY(26deg);
+
+        & .figure-container {
+          transform: translateZ(-25px) translateX(40px);
+        }
       }
 
       .figure-container {
@@ -37,7 +61,7 @@ class PunkoFop extends HTMLElement {
         height: 180%;
         display: grid;
         place-items: center;
-        transform: translateZ(-100px);
+        transform: translateZ(-100px) translateY(15px);
 
         & img {
           image-rendering: pixelated;
@@ -104,6 +128,8 @@ class PunkoFop extends HTMLElement {
 
   connectedCallback() {
     this.render();
+
+    isStatic && this.classList.add("static");
 
     this.setName(this.getAttribute("name"));
     this.setNumber(this.getAttribute("number"));

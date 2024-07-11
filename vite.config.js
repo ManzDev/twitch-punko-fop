@@ -7,17 +7,15 @@ module.exports = {
   base,
   mode,
   publicDir: "../public",
-  /*
   lib: {
     entry: "./components/PunkoFop.js",
     name: "PunkoFop",
-    fileName: "punko-fop"
   },
   rollupOptions: {
     output: {
       format: "es"
     }
-  }, */
+  },
   build: {
     outDir: "../dist",
     assetsDir: "./"
