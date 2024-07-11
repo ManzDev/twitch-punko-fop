@@ -195,7 +195,7 @@
         <manz-dev></manz-dev>
         <funko-number></funko-number>
       </div>
-    </div>`}}customElements.define("box-back",c);class f extends HTMLElement{static get styles(){return`
+    </div>`}}customElements.define("box-back",c);class m extends HTMLElement{static get styles(){return`
       .box-right {
         position: relative;
         overflow: hidden;
@@ -227,7 +227,7 @@
         transform: rotate(90deg) translateX(-75px) scale(1.1);
       }
     `}connectedCallback(){this.render()}render(){this.innerHTML=`
-    <style>${f.styles}</style>
+    <style>${m.styles}</style>
     <div class="box-right">
       <div class="front-top"></div>
       <div class="front-side">
@@ -238,7 +238,7 @@
       </div>
       <funko-logo type="STREAMERS"></funko-logo>
       <manz-dev></manz-dev>
-    </div>`}}customElements.define("box-right",f);class m extends HTMLElement{static get styles(){return`
+    </div>`}}customElements.define("box-right",m);class f extends HTMLElement{static get styles(){return`
       .box-top .inner-box {
         display: flex;
         flex-direction: column;
@@ -254,13 +254,13 @@
         transform: scale(0.8) translate(-200px, -25px) rotate(5deg);
       }
     `}connectedCallback(){this.render()}render(){this.innerHTML=`
-    <style>${m.styles}</style>
+    <style>${f.styles}</style>
     <div class="box-top">
       <div class="inner-box">
         <funko-logo type="STREAMERS"></funko-logo>
         <manz-dev></manz-dev>
       </div>
-    </div>`}}customElements.define("box-top",m);class u extends HTMLElement{static get styles(){return`
+    </div>`}}customElements.define("box-top",f);class u extends HTMLElement{static get styles(){return`
       .box-bottom .inner-box {
         display: flex;
         flex-direction: column;
@@ -283,23 +283,6 @@
         <manz-dev></manz-dev>
       </div>
     </div>`}}customElements.define("box-bottom",u);const h=new URL(location.href).searchParams.has("static");class b extends HTMLElement{static get styles(){return`
-      @font-face {
-        font-family: "Bebas Neue";
-        src:
-          url("/fonts/bebas-neue.woff2") format("woff2"),
-          url("/fonts/bebas-neue.woff") format("woff");
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "Heroes Legend";
-        src:
-          url("/fonts/heroes-legend.woff2") format("woff2"),
-          url("/fonts/heroes-legend.woff") format("woff"),
-          url("/fonts/heroes-legend.ttf") format("truetype");
-        font-display: swap;
-      }
-
       .container {
         width: 350px;
         height: 250px;
